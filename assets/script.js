@@ -1,5 +1,5 @@
 const form = document.forms['form']
-form.addEventListener('submit', handleSubmit)
+form.addEventListener('submit', handleSubmit, escondeForm)
 
 function handleSubmit(e) {
     e.preventDefault();
@@ -16,18 +16,15 @@ function handleSubmit(e) {
     basalFinal = Math.round(basal * level);
     basalAct = Math.round(basalFinal - ( basalFinal * 0.25 ))
 
-    console.log(basal)    
-    console.log(Math.round(basalAct))
-    console.log(basalFinal)
+    // console.log(basal)    
+    // console.log(Math.round(basalAct))
+    // console.log(basalFinal)
     
     var outBasal = document.getElementById("outBasal");
-    // outBasal.innerHTML = "Taxa basal: " + basal + " calorias";
     outBasal.innerHTML = `Taxa basal: ${basal} calorias`;
     var outAct = document.getElementById("outAct");
-    // outAct.innerHTML = "Taxa com atividade: " + basalAct + " calorias";
     outAct.innerHTML = `Taxa com atividade: ${basalAct} calorias`;
     var outDef = document.getElementById("outDef");
-    // outDef.innerHTML = "Taxa de déficit calórico: " + basalFinal + " calorias";
     outDef.innerHTML = `Taxa de déficit calórico: ${basalFinal} calorias`;
 
     const proteinPure = form.protein.value;
@@ -35,29 +32,59 @@ function handleSubmit(e) {
     const fatPure = form.fat.value;
     const fat = Math.round(form.fat.value * weight);    
     const carbPure = form.carb.value;
-    const carb = Math.round(form.carb.value * weight);
+    const carb = Math.round(form.carb.value * weight);    
 
-    resultForm = document.querySelectorAll('.result__content .form-group')
-    for (let index = 0; index < resultForm.length; index++) {
-        const element = resultForm[index];
-        
-        element.style.display = 'none';
-    }
-
-    document.getElementById("outProtein");
+    var outProtein = document.getElementById("outProtein");
+    var outFat = document.getElementById("outFat");
+    var outCarb = document.getElementById("outCarb");
     outProtein.innerHTML = `Proteínas ( ${proteinPure}g ): ${protein}g`;
-    document.getElementById("outFat");
     outFat.innerHTML = `Gorduras ( ${fatPure}g ): ${fat}g`;
-    document.getElementById("outCarb");
     outCarb.innerHTML = `Carbos ( ${carbPure}g ): ${carb}g`;
-    
+
+    escondeForm();
 }
 
-// function getSelectedValue(id) {
-//     const select = document.getElementById(id);
-//     return select.options[select.selectedIndex].value;
-// }
-  
-// function getInputNumberValue(id) {
-//     return Number(document.getElementById(id).value);
-// }
+var resultForm = document.querySelectorAll('.result__content .form-group')
+const resetButton = document.querySelector('#reset__button')
+const resultButton = document.querySelector('#result__button')
+var badges = document.querySelectorAll('.badge')
+
+function escondeForm() {
+    for (let index = 0; index < resultForm.length; index++) {
+        const element = resultForm[index];        
+        element.style.display = 'none';
+    }
+    resetButton.style.display = 'inline-block';
+    resultButton.style.display = 'none';
+}
+
+function mostraForm() {
+    for (let index = 0; index < resultForm.length; index++) {
+        const element = resultForm[index];        
+        element.style.display = 'block';
+    }
+    resetButton.style.display = 'none';
+    resultButton.style.display = 'inline-block';
+}
+
+function escondeBadges() {
+    for (let index = 0; index < badges.length; index++) {
+        const badge = badges[index];        
+        badge.style.display = 'none';
+    }
+}
+
+function validaReset() {
+    var proteinButton = document.querySelector('#outProtein')
+    var res = window.getComputedStyle(proteinButton, null).display;
+
+    escondeForm();
+
+    if(res !== 'none') {
+        escondeBadges();
+        mostraForm();
+    } 
+}
+
+// todo: depois q preenche o form, se limpar e preencher de novo os badges nao aparecem
+
