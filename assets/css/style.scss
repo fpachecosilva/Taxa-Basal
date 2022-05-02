@@ -1,11 +1,8 @@
-body {
-    display: flex;
-    align-items: center;
-    height: 100vh;
+body {    
     width: 100%;
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #7150c8 46%, #70ffec 100%);
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 .container {
     display: flex;
@@ -14,14 +11,20 @@ body {
     width: 90%;
     padding: 2em;
     border-radius: 1em;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    
-    // background: rgb(255 255 255 / 77%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;    
     backdrop-filter: blur(85px);
+    margin-top: 3em;
+    margin-bottom: 3em;    
+}
+.main__content {
+    width: 95%;
 }
 h4 {
     margin-bottom: 1em;
     text-transform: uppercase;
+}
+h5 {
+    margin: 20px 0;
 }
 h3, h4 {
     color: #6f42c1;
@@ -34,6 +37,7 @@ h3, h4 {
 ul {
     margin-left: 0;
     padding-left: 0;
+    margin-bottom: 0;
     li {
         list-style: none;
     }
@@ -53,10 +57,63 @@ ul {
 }
 .badge-secondary {
     background-color: #6f42c1!important;
+    padding: 5px;
+
+    &:first-of-type {
+        margin-left: 0;
+    }
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+.result__content {
+    margin-bottom: 30px;
 }
 .result__content ul li p {
     margin-bottom: 0;
 }
 #outDef {
     margin-bottom: 10px;
+}
+.rowBadges {
+    margin-bottom: 30px;
+    display: none;
+    margin-left: 0;
+    max-width: 100%;
+}
+.box-social {
+    margin: 0;
+    margin-bottom: 20px;
+    flex-wrap: initial;
+
+    a {
+        margin-right: 10px;
+    }
+}
+svg:not(:root) {
+    margin-bottom: -3px;
+    margin-right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .badge-secondary {
+        margin: 0;
+        width: 100%;
+        margin-top: 8px;
+    }
+    .box-social {
+        flex-wrap: wrap;
+
+        a {
+            margin: 5px 0px;
+        }
+    }
 }

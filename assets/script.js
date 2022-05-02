@@ -42,9 +42,10 @@ function handleSubmit(e) {
     outCarb.innerHTML = `Carbos ( ${carbPure}g ): ${carb}g`;
 
     escondeForm();
+    mostraBadges();
 }
 
-var resultForm = document.querySelectorAll('.result__content .form-group')
+var resultForm = document.querySelectorAll('.inserirDados')
 const resetButton = document.querySelector('#reset__button')
 const resultButton = document.querySelector('#result__button')
 var badges = document.querySelectorAll('.badge')
@@ -65,6 +66,8 @@ function mostraForm() {
     }
     resetButton.style.display = 'none';
     resultButton.style.display = 'inline-block';
+
+    
 }
 
 function escondeBadges() {
@@ -72,16 +75,30 @@ function escondeBadges() {
         const badge = badges[index];        
         badge.style.display = 'none';
     }
+    document.querySelector('.rowBadges').style.display = 'none';
+    outBasal.innerHTML = '';
+    outAct.innerHTML = '';
+    outDef.innerHTML = '';
 }
+
+function mostraBadges() {
+    for (let index = 0; index < badges.length; index++) {
+        const badge = badges[index];        
+        badge.style.display = 'inline-block';
+    }
+    document.querySelector('.rowBadges').style.display = 'block';
+}
+
 
 function validaReset() {
     var proteinButton = document.querySelector('#outProtein')
     var res = window.getComputedStyle(proteinButton, null).display;
 
     escondeForm();
+    escondeBadges();
 
     if(res !== 'none') {
-        escondeBadges();
+        // escondeBadges();
         mostraForm();
     } 
 }
