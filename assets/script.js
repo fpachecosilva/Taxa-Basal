@@ -65,9 +65,7 @@ function mostraForm() {
         element.style.display = 'block';
     }
     resetButton.style.display = 'none';
-    resultButton.style.display = 'inline-block';
-
-    
+    resultButton.style.display = 'inline-block';    
 }
 
 function escondeBadges() {
@@ -89,7 +87,6 @@ function mostraBadges() {
     document.querySelector('.rowBadges').style.display = 'block';
 }
 
-
 function validaReset() {
     var proteinButton = document.querySelector('#outProtein')
     var res = window.getComputedStyle(proteinButton, null).display;
@@ -98,10 +95,6 @@ function validaReset() {
     escondeBadges();
 
     if(res !== 'none') {
-        // escondeBadges();
         mostraForm();
     } 
 }
-
-// todo: depois q preenche o form, se limpar e preencher de novo os badges nao aparecem
-
