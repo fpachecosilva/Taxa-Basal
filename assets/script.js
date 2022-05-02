@@ -13,18 +13,14 @@ function handleSubmit(e) {
     gender == 'male' ? basal = (10 * weight) + ( 6.25 * height ) - ( 5 * age ) + 5 : basal = (10 * weight) + ( 6.25 * height ) - ( 5 * age ) -161;
 
     basal = Math.round(basal)
-    basalFinal = Math.round(basal * level);
-    basalAct = Math.round(basalFinal - ( basalFinal * 0.25 ))
-
-    // console.log(basal)    
-    // console.log(Math.round(basalAct))
-    // console.log(basalFinal)
+    basalAct = Math.round(basal * level);
+    basalFinal = Math.round(basalAct - ( basalAct * 0.25 ))
     
     var outBasal = document.getElementById("outBasal");
-    outBasal.innerHTML = `Taxa basal: ${basal} calorias`;
     var outAct = document.getElementById("outAct");
-    outAct.innerHTML = `Taxa com atividade: ${basalAct} calorias`;
     var outDef = document.getElementById("outDef");
+    outBasal.innerHTML = `Taxa metabólica basal: ${basal} calorias`;
+    outAct.innerHTML = `Taxa com atividade: ${basalAct} calorias`;
     outDef.innerHTML = `Taxa de déficit calórico: ${basalFinal} calorias`;
 
     const proteinPure = form.protein.value;

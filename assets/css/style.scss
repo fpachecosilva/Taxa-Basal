@@ -29,11 +29,6 @@ h5 {
 h3, h4 {
     color: #6f42c1;
 }
-.form-group {
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
 ul {
     margin-left: 0;
     padding-left: 0;
@@ -66,9 +61,6 @@ ul {
         margin-right: 0;
     }
 }
-.result__content {
-    margin-bottom: 30px;
-}
 .result__content ul li p {
     margin-bottom: 0;
 }
@@ -95,7 +87,7 @@ svg:not(:root) {
     margin-right: 5px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     body {
         height: 100vh;
         display: flex;
