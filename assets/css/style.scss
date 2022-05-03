@@ -50,9 +50,21 @@ ul {
         background-color: #8d61dc;
     }
 }
+.form-row.inserirDados {
+    max-width: 100%;
+    margin: 0;
+    justify-content: center;
+}
+.rowBadges {
+    margin-bottom: 20px;
+    margin-left: 0;
+    max-width: 100%;
+}
 .badge-secondary {
     background-color: #6f42c1!important;
     padding: 5px;
+    max-width: 32%;
+    margin-right: 10px;
 
     &:first-of-type {
         margin-left: 0;
@@ -67,12 +79,6 @@ ul {
 #outDef {
     margin-bottom: 10px;
 }
-.rowBadges {
-    margin-bottom: 30px;
-    display: none;
-    margin-left: 0;
-    max-width: 100%;
-}
 .box-social {
     margin: 0;
     margin-bottom: 20px;
@@ -86,6 +92,9 @@ svg:not(:root) {
     margin-bottom: -3px;
     margin-right: 5px;
 }
+.calcular {
+    margin-bottom: 0;
+}
 
 @media screen and (min-width: 1024px) {
     body {
@@ -96,9 +105,13 @@ svg:not(:root) {
 }
 
 @media screen and (max-width: 768px) {
+    .container {
+        margin-top: 1.5em;
+        margin-bottom: 1.5em
+    }
     .badge-secondary {
         margin: 0;
-        width: 100%;
+        max-width: 100%;
         margin-top: 8px;
     }
     .box-social {
@@ -107,5 +120,8 @@ svg:not(:root) {
         a {
             margin: 5px 0px;
         }
+    }
+    .rowBadges {
+        margin-bottom: 30px;
     }
 }

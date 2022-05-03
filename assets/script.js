@@ -37,7 +37,7 @@ function handleSubmit(e) {
     outFat.innerHTML = `Gorduras ( ${fatPure}g ): ${fat}g`;
     outCarb.innerHTML = `Carbos ( ${carbPure}g ): ${carb}g`;
 
-    escondeForm();
+    // escondeForm();
     mostraBadges();
 }
 
@@ -51,8 +51,8 @@ function escondeForm() {
         const element = resultForm[index];        
         element.style.display = 'none';
     }
-    resetButton.style.display = 'inline-block';
-    resultButton.style.display = 'none';
+    // resetButton.style.display = 'inline-block';
+    // resultButton.style.display = 'none';
 }
 
 function mostraForm() {
@@ -60,37 +60,37 @@ function mostraForm() {
         const element = resultForm[index];        
         element.style.display = 'block';
     }
-    resetButton.style.display = 'none';
-    resultButton.style.display = 'inline-block';    
+    // resetButton.style.display = 'none';
+    // resultButton.style.display = 'inline-block';    
 }
 
-function escondeBadges() {
-    for (let index = 0; index < badges.length; index++) {
-        const badge = badges[index];        
-        badge.style.display = 'none';
-    }
-    document.querySelector('.rowBadges').style.display = 'none';
-    outBasal.innerHTML = '';
-    outAct.innerHTML = '';
-    outDef.innerHTML = '';
-}
+// function escondeBadges() {
+//     for (let index = 0; index < badges.length; index++) {
+//         const badge = badges[index];        
+//         // badge.style.display = 'none';
+//     }
+//     // document.querySelector('.rowBadges').style.display = 'none';
+//     outBasal.innerHTML = '';
+//     outAct.innerHTML = '';
+//     outDef.innerHTML = '';
+// }
 
 function mostraBadges() {
     for (let index = 0; index < badges.length; index++) {
         const badge = badges[index];        
         badge.style.display = 'inline-block';
     }
-    document.querySelector('.rowBadges').style.display = 'block';
+    document.querySelector('.rowBadges').style.display = 'flex';
 }
 
-function validaReset() {
-    var proteinButton = document.querySelector('#outProtein')
-    var res = window.getComputedStyle(proteinButton, null).display;
+// function validaReset() {
+//     var proteinButton = document.querySelector('#outProtein')
+//     var res = window.getComputedStyle(proteinButton, null).display;
 
-    escondeForm();
-    escondeBadges();
+//     escondeForm();
+//     escondeBadges();
 
-    if(res !== 'none') {
-        mostraForm();
-    } 
-}
+//     if(res !== 'none') {
+//         mostraForm();
+//     } 
+// }
