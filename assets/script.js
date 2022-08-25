@@ -3,7 +3,6 @@ form.addEventListener('submit', handleSubmit, escondeForm)
 
 function handleSubmit(e) {
     e.preventDefault();
-
     const weight = form.weight.value;
     const height = form.height.value.replace('.','');
     const age = form.age.value;
@@ -19,11 +18,9 @@ function handleSubmit(e) {
     var outBasal = document.getElementById("outBasal");
     var outAct = document.getElementById("outAct");
     var outDef = document.getElementById("outDef");
-    outBasal.innerHTML = `Taxa metabólica basal: ${basal} calorias`;
-    outAct.innerHTML = `Taxa com atividade: ${basalAct} calorias`;
-    outDef.innerHTML = `Taxa de déficit calórico: ${basalFinal} calorias`;
-
-
+    // outBasal.innerHTML = `Taxa metabólica basal: ${basal} calorias`;
+    outAct.innerHTML = `Para manter o peso: ${basalAct} calorias`;
+    outDef.innerHTML = `Déficit para emagrecimento: ${basalFinal} calorias`;
     const proteinPure = form.protein.value;
     const protein = Math.round(form.protein.value * weight);
     const fatPure = form.fat.value;
@@ -37,9 +34,6 @@ function handleSubmit(e) {
     outProtein.innerHTML = `Proteínas ( ${proteinPure}g ): ${protein}g`;
     outFat.innerHTML = `Gorduras ( ${fatPure}g ): ${fat}g`;
     outCarb.innerHTML = `Carbos ( ${carbPure}g ): ${carb}g`;
-    
-    
-
     mostraBadges();
 }
 
